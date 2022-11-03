@@ -1,11 +1,12 @@
 import React from "react";
-import "./Footer.module.css";
+import "./Footer.module.scss";
+import style from "./Footer.module.css"
 
 const gitHubLink = "https://github.com/RomanDelinkevych";
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className={style.footer}>
             <div>
                 Info about me
             </div>

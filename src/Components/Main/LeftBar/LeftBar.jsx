@@ -1,22 +1,20 @@
 import React from "react";
-import "./LeftBar.module.css";
+import style from "./LeftBar.module.scss";
 import {NavLink} from "react-router-dom";
 
 const myProfile = "/MyProfile";
 const friends = "/friends";
-const messages = "/messages";
-const statistic = "/userStatistic";
-const setting = "/setting";
+const dialogs = "/dialogs";
 const out = "/out";
+const newsPath = "/news";
 
 const LeftBar = () => {
     return (
-            <div>
+            <div className={style.leftBar}>
+                <NavLink to={newsPath}>News</NavLink>
                 <NavLink to={myProfile}>My Profile</NavLink>
                 <NavLink to={friends}>Friends</NavLink>
-                <NavLink to={messages}>Messages</NavLink>
-                <NavLink to={statistic}>Statistic</NavLink>
-                <NavLink to={setting}>Setting</NavLink>
+                <NavLink to={dialogs}>Messages</NavLink>
                 <NavLink to={out}>Out</NavLink>
             </div>
     )

@@ -1,20 +1,23 @@
 import React from "react";
-import "./Header.module.css";
+import style from "./Header.module.scss";
+import logoNAVI from "../../assets/img/NAVI_Logo.svg.png"
 import {NavLink} from "react-router-dom";
+import logoMessages from "./../../assets/img/mail.png"
 
-
-const newsPath = "/news";
-const jobsPath = "/jobs";
-const statisticPath = "/statistic";
-const askerPath = "/asker";
+const messages = "/messages";
 
 const Header = () => {
     return (
-            <header>
-                <NavLink to={newsPath}>News</NavLink>
-                <NavLink to={jobsPath}>Jobs</NavLink>
-                <NavLink to={statisticPath}>Statistic</NavLink>
-                <NavLink to={askerPath}>Asker</NavLink>
+            <header className={style.header}>
+                <img src={logoNAVI}/>
+                <div>
+                    <NavLink to={messages}>
+                        <img src={logoMessages}/>
+                    </NavLink>
+                    <button>Login</button>
+                    <button>Register</button>
+                </div>
+
             </header>
     )
 };
