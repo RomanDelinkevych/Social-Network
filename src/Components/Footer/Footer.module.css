@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  background: rgb(183, 63, 251);
+  background: radial-gradient(circle, rgb(183, 63, 251) 0%, rgb(111, 84, 205) 2%, rgb(153, 75, 165) 4%, rgb(255, 255, 255) 6%, rgb(195, 131, 66) 9%, rgb(63, 210, 70) 17%, rgb(60, 58, 230) 40%);
+}
+
+/*# sourceMappingURL=Footer.module.css.map */

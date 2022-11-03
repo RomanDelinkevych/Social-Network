@@ -1,0 +1,75 @@
+.myProfile {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.myProfile > :nth-child(1) {
+  width: 50%;
+  height: 100%;
+  color: white;
+}
+.myProfile > :nth-child(1) > div {
+  overflow: hidden;
+  border-radius: 20%;
+  height: 45%;
+  width: 60%;
+}
+.myProfile > :nth-child(1) > div > img {
+  position: relative;
+  width: 100%;
+}
+.myProfile > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.myProfile > :nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.myProfile > :nth-child(2) > div > textarea {
+  width: 90%;
+}
+.myProfile > :nth-child(2) > div > :nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.myProfile > :nth-child(2) > div > :nth-child(2) > button, .myProfile > :nth-child(2) > div > :nth-child(2) input {
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 2px solid #0066cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 236ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.myProfile > :nth-child(2) > div > :nth-child(2) :hover {
+  transition: 236ms;
+  padding: 10px 50px;
+  transform: translateY(0px);
+  background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+  color: #e0e0e0;
+  border: solid 2px #0066cc;
+}
+.myProfile > :nth-child(2) > :last-child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+/*# sourceMappingURL=MyProfile.module.css.map */

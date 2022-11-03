@@ -1,0 +1,29 @@
+.postItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  margin: 2%;
+  color: white;
+  border-radius: 15px;
+  background: rgb(3, 2, 55);
+  background: linear-gradient(0deg, rgb(3, 2, 55) 0%, rgb(69, 52, 191) 50%, rgb(221, 0, 255) 100%);
+}
+.postItem > img {
+  padding: 2%;
+  width: 90%;
+}
+.postItem > p {
+  width: 100%;
+}
+.postItem > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*# sourceMappingURL=PostItem.module.css.map */
