@@ -1,5 +1,7 @@
 import myPhoto from "./../assets/img/photo_main.jpg"
-import postPhoto from "./../assets/img/NAVI_Logo.svg.png"
+import postPhoto from "./../assets/img/NAVI_Logo.svg.png";
+
+const ADD_POST = "ADD_POST";
 
 let initialState = {
     myProfile: {
@@ -33,9 +35,33 @@ let initialState = {
 
 const myProfileReducer = (state = initialState, action) => {
     switch (action.type) {
+        case ADD_POST:
+            return {
+                myProfile: {
+                    ...state.myProfile,
+                    posts: [
+                            ...state.myProfile.posts,
+                                {
+                                    id: state.myProfile.posts.length + 1,
+                                    photo: postPhoto,
+                                    text: action.text,
+                                    likes: 0,
+                                    whoLiked: [],
+                                    postTime: "26.26.26"
+                                }]
+                            }
+            }
 
         default:
             return state;
+    }
+}
+
+export const postActionCreator = (postInfo) => {
+    console.log(postInfo);
+    return {
+        type: ADD_POST,
+        text: postInfo,
     }
 }
 

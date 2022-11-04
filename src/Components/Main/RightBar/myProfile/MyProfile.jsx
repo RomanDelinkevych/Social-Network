@@ -4,10 +4,21 @@ import style from "./MyProfile.module.scss"
 
 const MyProfile = (props) => {
     console.log(props);
+    let valueTextArea = "";
     let info = props.profileInfo.myProfile;
     let posts = info.posts.map(post =>
         <PostItem key={post.id} postInfo={post}/>
     )
+
+
+    let onChangeTextArea = (e) => {
+        valueTextArea = e.target.value;
+    }
+
+    let onAddPostClick = () => {
+        console.log(valueTextArea);
+        props.addPost(valueTextArea);
+    }
     return (
         <div className={style.myProfile}>
             <div>
@@ -24,9 +35,9 @@ const MyProfile = (props) => {
             </div>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea onChange={onChangeTextArea}></textarea>
                     <div>
-                        <button>POST</button>
+                        <button onClick={onAddPostClick}>POST</button>
                         <input type={"file"}/>
                     </div>
                 </div>

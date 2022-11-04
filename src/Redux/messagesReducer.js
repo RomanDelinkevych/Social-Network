@@ -1,12 +1,14 @@
+import photo from "../assets/img/user_logo.jpg"
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+
 
 let initialState = {
     dialogs: [
         {
             id: 1,
             fullName: "Jon Smith",
-            photo: "path///",
+            photo: photo,
             messages: [
                 {id: 1, who: "You", text: "1 message Jon Smith"},
                 {id: 2, who: "Jon Smith", text: "2 message Jon Smith"},
@@ -17,7 +19,7 @@ let initialState = {
         {
             id: 2,
             fullName: "Alex Master",
-            photo: "path///",
+            photo: photo,
             messages: [
                 {id: 1, who: "You", text: "5 message Alex Master"},
                 {id: 2, who: "Alex Master", text: "6 message Alex Master"},

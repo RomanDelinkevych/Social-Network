@@ -1,0 +1,16 @@
+.dialogsItem {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  margin: 1%;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(90deg, rgb(131, 58, 180) 4%, rgb(253, 29, 29) 18%, rgb(104, 69, 252) 55%);
+}
+.dialogsItem > img {
+  height: 100%;
+}
+.dialogsItem > p {
+  padding-left: 5%;
+}
+
+/*# sourceMappingURL=DialogsItem.module.css.map */
