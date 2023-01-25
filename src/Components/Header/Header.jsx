@@ -4,7 +4,7 @@ import logoNAVI from "../../assets/img/NAVI_Logo.svg.png"
 import {NavLink} from "react-router-dom";
 import logoMessages from "./../../assets/img/mail.png"
 
-const messages = "/messages";
+const messages = "/dialogs";
 
 const Header = () => {
     return (
@@ -14,8 +14,14 @@ const Header = () => {
                     <NavLink to={messages}>
                         <img src={logoMessages}/>
                     </NavLink>
-                    <button>Login</button>
-                    <button>Register</button>
+                    <div>
+                        <div>
+                            <button>Login</button>
+                        </div>
+                        <div>
+                            <button>Register</button>
+                        </div>
+                    </div>
                 </div>
 
             </header>

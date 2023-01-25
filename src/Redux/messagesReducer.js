@@ -8,23 +8,25 @@ let initialState = {
         {
             id: 1,
             fullName: "Jon Smith",
+            path: "JonSmith",
             photo: photo,
             messages: [
-                {id: 1, who: "You", text: "1 message Jon Smith"},
-                {id: 2, who: "Jon Smith", text: "2 message Jon Smith"},
-                {id: 3, who: "You", text: "3 message Jon Smith"},
-                {id: 4, who: "Jon Smith", text: "4 message Jon Smith"},
+                {id: 1, who: "You", text: "1 message Jon Smith", date: "20.20.1999", time: "20:16:11"},
+                {id: 2, who: "Jon Smith", text: "2 message Jon Smith", date: "20.20.1999", time: "20:16:11"},
+                {id: 3, who: "You", text: "3 message Jon Smith", date: "20.20.1999", time: "20:16:11"},
+                {id: 4, who: "Jon Smith", text: "4 message Jon Smith", date: "20.20.1999", time: "20:16:11"},
             ]
         },
         {
             id: 2,
             fullName: "Alex Master",
+            path: "AlexMaster",
             photo: photo,
             messages: [
-                {id: 1, who: "You", text: "5 message Alex Master"},
-                {id: 2, who: "Alex Master", text: "6 message Alex Master"},
-                {id: 3, who: "You", text: "7 message Alex Master"},
-                {id: 4, who: "Alex Master", text: "8 message Alex Master"},
+                {id: 1, who: "You", text: "5 message Alex Master", date: "20.20.1999", time: "20:16:11"},
+                {id: 2, who: "Alex Master", text: "6 message Alex Master", date: "20.20.1999", time: "20:16:11"},
+                {id: 3, who: "You", text: "7 message Alex Master", date: "20.20.1999", time: "20:16:11"},
+                {id: 4, who: "Alex Master", text: "8 message Alex Master", date: "20.20.1999", time: "20:16:11"},
             ]
         },
     ],
@@ -32,7 +34,7 @@ let initialState = {
 };
 
 const messagesReducer = (state = initialState, action) => {
-    let newId = Number(state.dialogs[0].messages.length) + 1;
+
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
             return {
@@ -40,26 +42,46 @@ const messagesReducer = (state = initialState, action) => {
                 newMessageBody: action.body
             }
         case SEND_MESSAGE:
-            console.log(state.messages);
-            let body = state.newMessageBody;
-            return {
-                ...state.messages,
-                messages: [...state.messages, {id: newId, message: body}],
-                newMessageBody: ''
+            if (state.newMessageBody.length !== 0) {
+                let newId = Number(state.dialogs[action.arrayCount].messages.length) + 1;
+                let body = state.newMessageBody;
+                let newArrayMessages = [...state.dialogs];
+                let dateNow = new Date().toLocaleDateString();
+                let timeNow = new Date().toLocaleTimeString();
+                newArrayMessages[action.arrayCount].messages =
+                    [...newArrayMessages[action.arrayCount].messages,
+                        {
+                            id: newId,
+                            who: "You",
+                            text: body,
+                            date: dateNow,
+                            time: timeNow
+                        }
+                    ]
+
+                return {
+                    ...state,
+                    dialogs: newArrayMessages,
+                    newMessageBody: ""
+                }
             }
+            else {
+                return state;
+            }
+
         default:
             return state;
     }
 }
 
-export const sendMessageCreator = () => {
-    console.log("sendMessageCreator");
+export const sendMessageCreator = (arrayCount) => {
+    // console.log("sendMessageCreator");
     return {
-        type: SEND_MESSAGE
+        type: SEND_MESSAGE,
+        arrayCount: arrayCount
     }
 }
 export const updateNewMessageBodyCreator = (body) => {
-    console.log("updateNewMessageBodyCreator");
     return {
         type: UPDATE_NEW_MESSAGE_BODY,
         body: body

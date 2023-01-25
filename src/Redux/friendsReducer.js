@@ -1,7 +1,6 @@
 import img1 from "../assets/img/user_logo.jpg"
 
-const TOGGLE_FOLLOW_UNFOLLOW_FRIEND = 'FOLLOW_FRIEND';
-
+const TOGGLE_FOLLOW_UNFOLLOW_FRIEND = 'TOGGLE_FOLLOW_UNFOLLOW_FRIEND';
 let initialState = {
     friends: [
         {
@@ -26,17 +25,17 @@ const friendsReducer = (state = initialState, action) => {
             return {
                 ...state.friends
             }
-        default:
-            return state;
+        default: return {...state}
     }
 }
 
 export const toggleFollowUnfollowFriend = (friendID) => {
-    console.log("toggleFollowUnfollowFriend", friendID);
+    // console.log("toggleFollowUnfollowFriend", friendID);
     return {
         type: TOGGLE_FOLLOW_UNFOLLOW_FRIEND,
         id: friendID
     }
 }
+
 
 export default friendsReducer;

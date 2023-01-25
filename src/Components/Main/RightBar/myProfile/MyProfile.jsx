@@ -1,23 +1,33 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import PostItem from "./PostItem/PostItem";
 import style from "./MyProfile.module.scss"
 
 const MyProfile = (props) => {
-    console.log(props);
-    let valueTextArea = "";
+    // console.log(props);
+    let textAreaRef = useRef();
+    const [selectedFile, setSelectedFile] = useState({});
     let info = props.profileInfo.myProfile;
     let posts = info.posts.map(post =>
         <PostItem key={post.id} postInfo={post}/>
     )
 
-
-    let onChangeTextArea = (e) => {
-        valueTextArea = e.target.value;
-    }
-
     let onAddPostClick = () => {
-        console.log(valueTextArea);
-        props.addPost(valueTextArea);
+        let post = {
+            text: null,
+            image: null,
+            time: ""
+        }
+        post.time = new Date().toLocaleString()
+        if (textAreaRef.current.value.length !== 0) {
+            post.text = textAreaRef.current.value;
+            textAreaRef.current.value = "";
+        }
+        if (selectedFile.name !== undefined) {
+            post.image = selectedFile;
+        }
+        if (post.text !== null || post.image !== null) {
+            props.addPost(post);
+        }
     }
     return (
         <div className={style.myProfile}>
@@ -25,20 +35,27 @@ const MyProfile = (props) => {
                 <div>
                     <img src={info.photo}/>
                 </div>
-                <p>{info.onLine}</p>
+                <div>
+                    <div/>
+                    <p>{info.onLine}</p>
+                </div>
                 <p>{info.fullName}</p>
-                <p>{info.city}</p>
-                <p>{info.birthdayTime}</p>
-                <p>{info.work}</p>
-                <p>{info.friends}</p>
-                <p>{info.about}</p>
+                <p>City: {info.city}</p>
+                <p>Birthday: {info.birthdayTime}</p>
+                <p>Work: {info.work}</p>
+                <p>Friends: {info.friends}</p>
+                <p>About: {info.about}</p>
             </div>
             <div>
                 <div>
-                    <textarea onChange={onChangeTextArea}></textarea>
+                    <textarea ref={textAreaRef}></textarea>
                     <div>
                         <button onClick={onAddPostClick}>POST</button>
-                        <input type={"file"}/>
+                        <input
+                            onChange={(e) => {
+                                setSelectedFile(e.target.files[0])
+                            }}
+                            type={"file"}/>
                     </div>
                 </div>
                 <div>

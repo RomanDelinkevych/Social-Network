@@ -1,43 +1,50 @@
 import React from "react";
 import MessageItem from "./MessageItem/MessageItem";
-import DialogItem from "./Dialogs/DialogItem/DialogItem";
-import "./Messages.module.css";
+import style from "./Messages.module.scss";
+import {useLocation} from "react-router-dom";
+
 
 const Messages = (props) => {
-
-    let state = props.messagePage;
-    let dialogsElement = props.messagePage.dialogs.map(dialog => <DialogItem key={dialog.id} name={dialog.fullName} id={dialog.id}/>);
-    console.log(props.messagePage.dialogs);
-    let messageElement = props.messagePage.dialogs.map(dialog => dialog.messages.map(message => <MessageItem key={message.id} message={message.text}/>) );
-    let newMessageBody = props.newMessageBody;
+    let location = useLocation();
+    let locationPath = location.pathname.replace("/messages/", "");
+    let dialog;
+    props.messagePage.dialogs.forEach(dialogSearch => {
+        if (dialogSearch.path === locationPath) {
+            dialog = dialogSearch;
+        }
+    })
+    let arrayCount = Number(dialog.id) - 1;
+    let otherPersonPhoto = props.messagePage.dialogs[arrayCount].photo;
+    let clientPhoto = props.clientPhoto;
+    let messageElement = props.messagePage.dialogs[arrayCount].messages.map(message =>
+        <MessageItem
+            key={message.id}
+            message={message}
+            photo={message.who === "You" ? clientPhoto : otherPersonPhoto}
+        />);
+    let newMessageBody = props.messagePage.newMessageBody;
 
     let onSendMessageClick = () => {
-        props.sendMessage();
+        props.sendMessage(arrayCount);
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-
         props.updateNewMessageBody(body);
     }
 
     return (
-        <div>
+        <div className={style.messages}>
             <div>
-                {dialogsElement}
+                {messageElement}
             </div>
             <div>
-                <div>
-                    {messageElement}
-                </div>
-                <div>
                 <textarea
                     value={newMessageBody}
                     onChange={onNewMessageChange}
-                    placeholder='send message'
+                    placeholder='Write message ...'
                 ></textarea>
-                </div>
-                <div><button onClick={onSendMessageClick}>Send</button></div>
+                <button onClick={onSendMessageClick}>Send</button>
             </div>
         </div>
     )

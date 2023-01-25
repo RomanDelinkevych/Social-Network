@@ -3,10 +3,10 @@ import {NavLink} from "react-router-dom";
 import style from "./DialogsItem.module.scss"
 
 const DialogItem = (props) => {
-    console.log(props);
-    let path = '/messages/' + props.dialogInfo.id;
+    const roadToNavigate = "/messages/" + props.dialogInfo.fullName.toString().replaceAll(/ /g, "");
+
     return (
-            <NavLink className={style.dialogsItem} to={path}>
+            <NavLink className={style.dialogsItem} to={roadToNavigate}>
                 <img src={props.dialogInfo.photo}/>
                 <p>{props.dialogInfo.fullName}</p>
                 <p>{props.dialogInfo.messages[3].text}</p>

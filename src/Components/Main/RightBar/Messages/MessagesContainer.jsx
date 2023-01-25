@@ -5,7 +5,8 @@ import Messages from "./Messages";
 
 let mapStateToProps = (state) => {
     return {
-        messagePage: state.messagePage
+        messagePage: state.messagePage,
+        clientPhoto: state.myProfilePage.myProfile.photo
     }
 }
 
@@ -14,8 +15,8 @@ let mapDispatchToProps = (dispatch) => {
         updateNewMessageBody: (body) => {
             dispatch(updateNewMessageBodyCreator(body));
         },
-        sendMessage: () => {
-            dispatch(sendMessageCreator())
+        sendMessage: (arrayCount) => {
+            dispatch(sendMessageCreator(arrayCount))
         }
     }
 }

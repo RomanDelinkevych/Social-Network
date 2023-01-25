@@ -10,8 +10,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addPost: (text) => {
-            dispatch(postActionCreator(text));
+        addPost: ({text, image, time}) => {
+            dispatch(postActionCreator(text, image, time));
         }
 
     }
