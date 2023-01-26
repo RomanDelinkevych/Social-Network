@@ -8,16 +8,13 @@
   background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .messageItem > :nth-child(1) {
-  width: 10vw;
-  height: 10vw;
+  height: 5vw;
   border-radius: 100%;
   overflow: hidden;
   margin: 0;
 }
 .messageItem > :nth-child(1) > img {
-  object-position: 50% 50%;
-  object-fit: cover;
-  width: 10vw;
+  width: 5vw;
 }
 .messageItem > p {
   width: 30vw;
