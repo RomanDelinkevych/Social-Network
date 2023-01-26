@@ -11,10 +11,8 @@ const FriendCard = (props) => {
             <img src={props.userInfo.photo}/>
             <NavLink to={"/" + props.userInfo.fullName}>{props.userInfo.fullName}</NavLink>
             <div>
-                <button
-                    onClick ={() => navigate(roadToNavigate)}
-                >Message</button>
-                <button>Unfollow</button>
+                <button onClick ={() => navigate(roadToNavigate)}>Message</button>
+                <button onClick={() => {props.toggleFunc(props.userInfo.id)}}>{props.userInfo.followed === true ? "Unfollow" : "Follow"}</button>
             </div>
         </div>
     )

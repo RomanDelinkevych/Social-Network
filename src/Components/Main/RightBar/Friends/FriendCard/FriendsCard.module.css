@@ -27,10 +27,16 @@
   flex-wrap: wrap;
 }
 .card > div > button {
+  height: 2.5vh;
+  width: 30%;
   border: none;
-  background-color: #61dafb;
-  border-radius: 20%;
+  background-color: #80ab51;
+  border-radius: 2vw;
   margin: 1%;
+}
+.card > div :hover {
+  background-color: #6f54cd;
+  color: white;
 }
 
 /*# sourceMappingURL=FriendsCard.module.css.map */

@@ -21,9 +21,22 @@ let initialState = {
 const friendsReducer = (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_FOLLOW_UNFOLLOW_FRIEND:
-            let targetID = action.id;
+            let friendsArr = [...state.friends];
+            friendsArr.forEach(friend => {
+                    if (friend.id === action.id) {
+                        if (friend.followed === true) {
+                            friend.followed = false;
+                        } else if (friend.followed === false) {
+                            friend.followed = true
+                        }
+                    }
+                    console.log(friend)
+                })
+
+
             return {
-                ...state.friends
+                ...state,
+                friends: [...friendsArr]
             }
         default: return {...state}
     }
