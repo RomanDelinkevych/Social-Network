@@ -1,13 +1,31 @@
 import img1 from "../assets/img/user_logo.jpg"
+import postPhoto from "../assets/img/NAVI_Logo.svg.png";
 
 const TOGGLE_FOLLOW_UNFOLLOW_FRIEND = 'TOGGLE_FOLLOW_UNFOLLOW_FRIEND';
 let initialState = {
     friends: [
         {
             id: 1,
+            followed: true,
             fullName: "Jon Smith",
+            birthdayTime: "03.02.1999",
             photo: img1,
-            followed: true
+            city: "Lviv",
+            work: "Web Developer",
+            onLine: "Online",
+            about: "Hi, my name is Jon Smith. I do a cookies!!!",
+            friends: [],
+            friendsCount: 0,
+            posts: [
+                {
+                    id: 1,
+                    photo: postPhoto,
+                    text: "NAVI - THE BEST!",
+                    likes: 0,
+                    whoLiked: [],
+                    postTime: "20.20.20"
+                }
+            ],
         },
         {
             id: 2,

@@ -5,13 +5,14 @@ import style from "./MyProfile.module.scss"
 const MyProfile = (props) => {
     // console.log(props);
     let textAreaRef = useRef();
-    const [selectedFile, setSelectedFile] = useState({});
+    const [selectedFile, setSelectedFile] = useState(undefined);
     let info = props.profileInfo.myProfile;
     let posts = info.posts.map(post =>
         <PostItem key={post.id} postInfo={post}/>
     )
 
     let onAddPostClick = () => {
+
         let post = {
             text: null,
             image: null,
@@ -22,12 +23,15 @@ const MyProfile = (props) => {
             post.text = textAreaRef.current.value;
             textAreaRef.current.value = "";
         }
-        if (selectedFile.name !== undefined) {
+        if (selectedFile !== undefined) {
+            console.log(selectedFile.name);
             post.image = selectedFile;
+
         }
         if (post.text !== null || post.image !== null) {
             props.addPost(post);
         }
+        setSelectedFile(undefined);
     }
     return (
         <div className={style.myProfile}>
@@ -54,6 +58,7 @@ const MyProfile = (props) => {
                         <input
                             onChange={(e) => {
                                 setSelectedFile(e.target.files[0])
+                                e.target.value = null;
                             }}
                             type={"file"}/>
                     </div>

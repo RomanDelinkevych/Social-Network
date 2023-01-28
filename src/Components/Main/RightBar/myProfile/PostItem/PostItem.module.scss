@@ -21,7 +21,35 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+
+    > button {
+      font-size: 14px;
+      color: #fff;
+      background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+      padding: 10px 30px;
+      border: 2px solid #0066cc;
+      box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+      border-radius: 50px;
+      margin-left: 5%;
+      transition : 236ms;
+      transform: translateY(0);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+    }
+    > button:hover{
+      transition : 236ms;
+      padding: 10px 50px;
+      transform : translateY(-0px);
+      background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+      color: #e0e0e0;
+      border: solid 2px #0066cc;
+    }
+    > p {
+      margin-right: 5%;
+    }
   }
 }

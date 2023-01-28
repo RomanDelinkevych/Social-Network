@@ -12,21 +12,20 @@ let initialState = {
         city: "Lviv",
         work: "Web Developer",
         onLine: "Online",
-        about: "123aksjdhkjahsfkjhkasjhfkjasfk",
+        about: "Hi, my name is Roman. I am studying at engineer group that specializing in welding. I also have master dagre in this university, and confirm my diploma work on english. I work as an wedding installer and a driver in Lviv. \n" +
+            "I am twenty three years old, but i looking myself for now. Before war i try earn money in crypto, i try start my website - that will be unique in our country, but now i looking for a job in IT-industry, like front-end website developer.",
         friends: [],
         friendsCount: 0,
         posts: [
             {
                 id: 1,
+                whoAddPost: "Roman Delinkevich",
                 photo: postPhoto,
                 text: "NAVI - THE BEST!",
-                likes: 0,
                 whoLiked: [],
                 postTime: "20.20.20"
             }
         ],
-
-
     },
     newMessageBody: ""
 };

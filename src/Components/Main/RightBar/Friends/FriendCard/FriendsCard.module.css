@@ -9,6 +9,9 @@
   height: 30%;
   margin: 2%;
   border-radius: 10%;
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
 .card > img {
   height: 60%;

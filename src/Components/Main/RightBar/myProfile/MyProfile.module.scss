@@ -93,6 +93,10 @@
             align-items: center;
             cursor: pointer;
         }
+        > input::after {
+            border: none;
+            background-color: #54b6cd;
+        }
         > :hover{
           transition : 236ms;
           padding: 10px 50px;

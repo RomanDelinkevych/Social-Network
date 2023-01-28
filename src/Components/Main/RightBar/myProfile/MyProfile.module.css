@@ -86,6 +86,10 @@
   align-items: center;
   cursor: pointer;
 }
+.myProfile > :nth-child(2) > :nth-child(1) > :nth-child(2) > input::after {
+  border: none;
+  background-color: #54b6cd;
+}
 .myProfile > :nth-child(2) > :nth-child(1) > :nth-child(2) > :hover {
   transition: 236ms;
   padding: 10px 50px;
