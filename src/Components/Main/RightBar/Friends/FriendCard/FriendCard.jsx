@@ -9,7 +9,7 @@ const FriendCard = (props) => {
     return (
         <NavLink to={"profile/" + props.userInfo.fullName.toString().replaceAll(/ /g, "")} className={style.card}>
                 <img src={props.userInfo.photo}/>
-                <NavLink to={"/" + props.userInfo.fullName}>{props.userInfo.fullName}</NavLink>
+                <p>{props.userInfo.fullName}</p>
                 <div>
                     <button onClick ={(e) => {
                         e.preventDefault();

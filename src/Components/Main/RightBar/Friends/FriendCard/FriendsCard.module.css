@@ -17,11 +17,6 @@
   height: 60%;
   border-radius: 100%;
 }
-.card > a {
-  text-decoration: none;
-  color: black;
-  text-align: center;
-}
 .card > div {
   display: flex;
   justify-content: space-around;
