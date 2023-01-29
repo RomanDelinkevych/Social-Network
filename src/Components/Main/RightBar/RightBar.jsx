@@ -8,6 +8,7 @@ import Friends from "./Friends/Friends";
 import Dialogs from "./Messages/Dialogs/Dialogs";
 import Messages from "./Messages/Messages";
 import News from "./News/News";
+import Out from "./Out/Out";
 
 const RightBar = () => {
     return (
@@ -18,7 +19,7 @@ const RightBar = () => {
                 <Route path="friends/*" element={<Friends/>}/>
                 <Route path="dialogs/" element={<Dialogs/>}/>
                 <Route path="messages/*" element={<Messages/>}/>
-                <Route path="out/" element={"123"}/>
+                <Route path="out/" element={<Out/>}/>
             </Routes>
     )
 };

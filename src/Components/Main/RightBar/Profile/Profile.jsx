@@ -56,7 +56,6 @@ const Profile = (props) => {
         if (selectedFile !== undefined) {
             console.log(selectedFile.name);
             post.image = selectedFile;
-
         }
         if (post.text !== null || post.image !== null) {
             props.addPost(post);
