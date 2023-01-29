@@ -1,6 +1,14 @@
 import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import style from "./Dialogs.module.scss"
+import {connect} from "react-redux";
+import {compose} from "redux";
+
+let mapStateToProps = (state) => {
+    return {
+        messagePage: state.messagePage
+    }
+}
 
 const Dialogs = (props) => {
     let dialogs = props.messagePage.dialogs;
@@ -12,4 +20,4 @@ const Dialogs = (props) => {
     )
 }
 
-export default Dialogs;
+export default compose(connect(mapStateToProps)) (Dialogs);

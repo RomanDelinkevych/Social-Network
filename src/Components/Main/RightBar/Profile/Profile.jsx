@@ -1,8 +1,26 @@
 import React, {useRef, useState} from "react";
 import PostItem from "./PostItem/PostItem";
-import style from "./MyProfile.module.scss"
+import style from "./Profile.module.scss"
+import {postActionCreator} from "../../../../Redux/myProfileReducer";
+import {compose} from "redux";
+import {connect} from "react-redux";
 
-const MyProfile = (props) => {
+let mapStateToProps = (state) => {
+    return {
+        profileInfo: state.myProfilePage
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: ({text, image, time}) => {
+            dispatch(postActionCreator(text, image, time));
+        }
+
+    }
+}
+
+const Profile = (props) => {
     // console.log(props);
     let textAreaRef = useRef();
     const [selectedFile, setSelectedFile] = useState(undefined);
@@ -71,4 +89,4 @@ const MyProfile = (props) => {
     )
 }
 
-export default MyProfile;
+export default compose(connect(mapStateToProps, mapDispatchToProps)) (Profile)

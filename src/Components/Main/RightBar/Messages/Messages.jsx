@@ -1,8 +1,31 @@
 import React from "react";
-import MessageItem from "./MessageItem/MessageItem";
 import style from "./Messages.module.scss";
+//Components
+import MessageItem from "./MessageItem/MessageItem";
+//Redux
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../../Redux/messagesReducer";
+import {compose} from "redux";
+import {connect} from "react-redux";
+//Hooks
 import {useLocation} from "react-router-dom";
 
+let mapStateToProps = (state) => {
+    return {
+        messagePage: state.messagePage,
+        clientPhoto: state.myProfilePage.myProfile.photo
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageBody: (body) => {
+            dispatch(updateNewMessageBodyCreator(body));
+        },
+        sendMessage: (arrayCount) => {
+            dispatch(sendMessageCreator(arrayCount))
+        }
+    }
+}
 
 const Messages = (props) => {
     let location = useLocation();
@@ -51,4 +74,4 @@ const Messages = (props) => {
 
 }
 
-export default Messages;
+export default compose(connect(mapStateToProps, mapDispatchToProps)) (Messages);

@@ -1,29 +1,24 @@
 import React from "react";
 import "./RightBar.module.css";
-import News from "./News/News";
-import {Routes, Route} from "react-router-dom";
-import FriendsContainer from "./Friends/FriendsContainer";
-import MyProfileContainer from "./myProfile/MyProfileContainer";
-import DialogsContainer from "./Messages/Dialogs/DialogsContainer";
-import MessagesContainer from "./Messages/MessagesContainer";
 
-const newsPath = "news/";
-const myProfile = "MyProfile/";
-const friends = "friends/";
-const messages = "messages/*";
-const dialogs = "dialogs/";
-const out = "out/";
+//Components
+import {Routes, Route} from "react-router-dom";
+import Profile from "./Profile/Profile";
+import Friends from "./Friends/Friends";
+import Dialogs from "./Messages/Dialogs/Dialogs";
+import Messages from "./Messages/Messages";
+import News from "./News/News";
 
 const RightBar = () => {
     return (
             <Routes>
                 <Route path={"/"} element={<News/>}/>
-                <Route path={newsPath} element={<News/>}/>
-                <Route path={myProfile} element={<MyProfileContainer/>}/>
-                <Route path={friends} element={<FriendsContainer/>}/>
-                <Route path={dialogs} element={<DialogsContainer/>}/>
-                <Route path={messages} element={<MessagesContainer/>}/>
-                <Route path={out} element={"123"}/>
+                <Route path="news/" element={<News/>}/>
+                <Route path="profile/*" element={<Profile/>}/>
+                <Route path="friends/*" element={<Friends/>}/>
+                <Route path="dialogs/" element={<Dialogs/>}/>
+                <Route path="messages/*" element={<Messages/>}/>
+                <Route path="out/" element={"123"}/>
             </Routes>
     )
 };

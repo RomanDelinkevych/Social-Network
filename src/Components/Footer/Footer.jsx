@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
             <div>
                 Created by
-                <a href={gitHubLink}>
+                <a href={gitHubLink} target={"_blank"}>
                     DELONE
                 </a>
             </div>

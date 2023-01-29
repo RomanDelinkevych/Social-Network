@@ -2,7 +2,7 @@ import React from "react";
 import style from "./LeftBar.module.scss";
 import {NavLink} from "react-router-dom";
 
-const myProfile = "/MyProfile";
+const myProfile = "/Profile";
 const friends = "/friends";
 const dialogs = "/dialogs";
 const out = "/out";

@@ -12,6 +12,7 @@
   text-decoration: none;
   color: black;
   text-align: center;
+  cursor: pointer;
 }
 .card > img {
   height: 60%;

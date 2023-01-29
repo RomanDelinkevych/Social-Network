@@ -7,6 +7,7 @@ let initialState = {
     myProfile: {
         id: 1,
         fullName: "Roman Delinkevich",
+        webPath: "RomanDelinkevich",
         birthdayTime: "03.02.1999",
         photo: myPhoto,
         city: "Lviv",
