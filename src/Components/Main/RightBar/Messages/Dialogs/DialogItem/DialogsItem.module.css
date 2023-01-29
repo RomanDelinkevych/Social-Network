@@ -6,6 +6,8 @@
   margin: 1%;
   background: rgb(131, 58, 180);
   background: linear-gradient(90deg, rgb(131, 58, 180) 4%, rgb(253, 29, 29) 18%, rgb(104, 69, 252) 55%);
+  color: white;
+  text-decoration: none;
 }
 .dialogsItem > img {
   height: 100%;
