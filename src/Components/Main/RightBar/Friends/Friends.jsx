@@ -26,7 +26,7 @@ const Friends = (props) => {
         friend.followed === true ? <FriendCard key={friend.id}
                                                userInfo={friend}
                                                toggleFunc={props.toggleFriend}
-        /> : ""
+        /> : null
     )
 
     return (<div className={style.friends}>{friends}</div>)

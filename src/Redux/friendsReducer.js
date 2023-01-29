@@ -8,7 +8,7 @@ let initialState = {
             id: 1,
             followed: true,
             fullName: "Jon Smith",
-            webPath: "JonSmith",
+            webPath: "/JonSmith",
             birthdayTime: "03.02.1999",
             photo: img1,
             city: "Lviv",
@@ -32,7 +32,7 @@ let initialState = {
             id: 2,
             followed: true,
             fullName: "Alex Master",
-            webPath: "AlexMaster",
+            webPath: "/AlexMaster",
             birthdayTime: "03.02.1999",
             photo: img1,
             city: "Lviv",
@@ -67,9 +67,7 @@ const friendsReducer = (state = initialState, action) => {
                             friend.followed = true
                         }
                     }
-                    console.log(friend)
                 })
-
 
             return {
                 ...state,
@@ -80,7 +78,6 @@ const friendsReducer = (state = initialState, action) => {
 }
 
 export const toggleFollowUnfollowFriend = (friendID) => {
-    // console.log("toggleFollowUnfollowFriend", friendID);
     return {
         type: TOGGLE_FOLLOW_UNFOLLOW_FRIEND,
         id: friendID
