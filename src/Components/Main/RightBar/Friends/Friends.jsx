@@ -1,9 +1,11 @@
 import React from "react";
-import FriendCard from "./FriendCard/FriendCard";
 import style from "./Friends.module.scss";
+//Redux
 import {toggleFollowUnfollowFriend} from "../../../../Redux/friendsReducer";
 import {compose} from "redux";
 import {connect} from "react-redux";
+//Components
+import FriendCard from "./FriendCard/FriendCard";
 
 let mapStateToProps = (state) => {
     return {
