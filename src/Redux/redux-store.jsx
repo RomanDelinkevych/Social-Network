@@ -3,15 +3,12 @@ import messagesReducer from "./messagesReducer";
 import friendsReducer from "./friendsReducer";
 import MyProfileReducer from "./myProfileReducer";
 import thunk from "redux-thunk"
-import dataFirebase from "./../API/Firebase/myProfileSlice"
-import {firebaseMyProfile} from "../API/Firebase/myProfileSlice";
 
 
 let reducer = combineReducers({
     messagePage: messagesReducer,
     friendsPage: friendsReducer,
-    myProfilePage: MyProfileReducer,
-    dataFirebase: dataFirebase
+    myProfilePage: MyProfileReducer
 });
 
 let store = createStore(reducer, applyMiddleware(thunk));

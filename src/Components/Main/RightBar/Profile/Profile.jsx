@@ -4,7 +4,6 @@ import style from "./Profile.module.scss"
 import {initMyProfileActionCreator, postActionCreator} from "../../../../Redux/myProfileReducer";
 import {compose} from "redux";
 import {connect, useDispatch} from "react-redux";
-import {firebaseMyProfile} from "../../../../API/Firebase/myProfileSlice";
 import {useLocation} from "react-router-dom";
 import LoadingComponents from "../../../LoadingComponents/LoadingComponents";
 import {getUserDataAlways} from "../../../../API/Firebase/FirebaseHelper";
@@ -21,18 +20,11 @@ let mapDispatchToProps = (dispatch) => {
     return {
         addPost: ({text, image, time}) => {
             dispatch(postActionCreator(text, image, time));
-        },
-        firebaseDataActionCreator: (data) => {
-            dispatch(firebaseMyProfile())
         }
     }
 }
 
 const Profile = (props) => {
-    useEffect(() => {
-        props.firebaseDataActionCreator();
-    }, [])
-
     let isLoad = props.profileInfo.isLoaded;
     //Hooks
     const textAreaRef = useRef();

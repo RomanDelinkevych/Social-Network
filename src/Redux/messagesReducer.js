@@ -71,13 +71,11 @@ const messagesReducer = (state = initialState, action) => {
             }
 
         default:
-            // setUserData({...state.dialogs}, "/dialogs")
             return state;
     }
 }
 
 export const sendMessageCreator = (arrayCount) => {
-    // console.log("sendMessageCreator");
     return {
         type: SEND_MESSAGE,
         arrayCount: arrayCount
