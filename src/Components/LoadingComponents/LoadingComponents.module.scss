@@ -1,0 +1,18 @@
+.loadingComponents {
+  width: 100%;
+  height: 100%;
+  background: rgb(158,0,0);
+  background: linear-gradient(90deg, rgba(158,0,0,1) 0%, rgba(159,157,0,1) 10%, rgba(59,159,0,1) 20%, rgba(0,159,34,1) 30%, rgba(0,159,152,1) 40%, rgba(0,164,255,1) 50%, rgba(0,5,255,1) 60%, rgba(115,0,255,1) 70%, rgba(255,0,236,1) 80%, rgba(255,0,116,1) 90%, rgba(255,0,0,1) 100%);
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  animation: loadingComponent_changeBackground infinite alternate 10s;
+}
+
+@keyframes loadingComponent_changeBackground {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}

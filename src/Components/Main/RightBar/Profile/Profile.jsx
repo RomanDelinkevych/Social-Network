@@ -1,12 +1,16 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import PostItem from "./PostItem/PostItem";
 import style from "./Profile.module.scss"
-import {postActionCreator} from "../../../../Redux/myProfileReducer";
+import {initMyProfileActionCreator, postActionCreator} from "../../../../Redux/myProfileReducer";
 import {compose} from "redux";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
+import {firebaseMyProfile} from "../../../../API/Firebase/myProfileSlice";
 import {useLocation} from "react-router-dom";
+import LoadingComponents from "../../../LoadingComponents/LoadingComponents";
+import {getUserDataAlways} from "../../../../API/Firebase/FirebaseHelper";
 
 let mapStateToProps = (state) => {
+    console.log(state);
     return {
         profileInfo: state.myProfilePage,
         friendsInfo: state.friendsPage
@@ -17,11 +21,19 @@ let mapDispatchToProps = (dispatch) => {
     return {
         addPost: ({text, image, time}) => {
             dispatch(postActionCreator(text, image, time));
+        },
+        firebaseDataActionCreator: (data) => {
+            dispatch(firebaseMyProfile())
         }
     }
 }
 
 const Profile = (props) => {
+    useEffect(() => {
+        props.firebaseDataActionCreator();
+    }, [])
+
+    let isLoad = props.profileInfo.isLoaded;
     //Hooks
     const textAreaRef = useRef();
     const location = useLocation();
@@ -38,9 +50,11 @@ const Profile = (props) => {
         })
     }
 
-    let posts = info.posts.map(post =>
-        <PostItem key={post.id} postInfo={post}/>
-    )
+    let posts;
+    if (isLoad && info.posts) {
+        posts = info.posts.map(post => <PostItem key={post.id} postInfo={post}/>)
+    }
+
 
     let onAddPostClick = () => {
         let post = {
@@ -62,22 +76,24 @@ const Profile = (props) => {
         }
         setSelectedFile(undefined);
     }
+
+
     return (
         <div className={style.myProfile}>
             <div>
                 <div>
-                    <img src={info.photo} alt={info.photo}/>
+                    {isLoad ? <img src={info.photo} alt={info.photo}/> : <LoadingComponents/>}
                 </div>
                 <div>
                     <div/>
                     <p>{info.onLine}</p>
                 </div>
-                <p>{info.fullName}</p>
-                <p>City: {info.city}</p>
-                <p>Birthday: {info.birthdayTime}</p>
-                <p>Work: {info.work}</p>
-                <p>Friends: {info.friends}</p>
-                <p>About: {info.about}</p>
+                <p>{isLoad ? info.fullName : <LoadingComponents/>}</p>
+                <p>City: {isLoad ? info.city : <LoadingComponents/>}</p>
+                <p>Birthday: {isLoad ? info.birthdayTime : <LoadingComponents/>}</p>
+                <p>Work: {isLoad ? info.work : <LoadingComponents/>}</p>
+                <p>Friends: {isLoad ? info.friends : <LoadingComponents/>}</p>
+                <p>About: {isLoad ? info.about : <LoadingComponents/>}</p>
             </div>
             <div>
                 <div>
@@ -93,7 +109,7 @@ const Profile = (props) => {
                     </div>
                 </div>
                 <div>
-                    {posts}
+                    {isLoad ? posts : <LoadingComponents/>}
                 </div>
             </div>
         </div>

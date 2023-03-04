@@ -1,5 +1,6 @@
 import img1 from "../assets/img/user_logo.jpg"
 import postPhoto from "../assets/img/NAVI_Logo.svg.png";
+import {setUserData} from "../API/Firebase/FirebaseHelper";
 
 const TOGGLE_FOLLOW_UNFOLLOW_FRIEND = 'TOGGLE_FOLLOW_UNFOLLOW_FRIEND';
 let initialState = {
@@ -73,7 +74,9 @@ const friendsReducer = (state = initialState, action) => {
                 ...state,
                 friends: [...friendsArr]
             }
-        default: return {...state}
+        default:
+            // setUserData({...state.friends}, "/friends")
+            return {...state}
     }
 }
 

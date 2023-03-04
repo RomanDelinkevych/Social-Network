@@ -1,4 +1,5 @@
 import photo from "../assets/img/user_logo.jpg"
+import {setUserData} from "../API/Firebase/FirebaseHelper";
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 
@@ -70,6 +71,7 @@ const messagesReducer = (state = initialState, action) => {
             }
 
         default:
+            // setUserData({...state.dialogs}, "/dialogs")
             return state;
     }
 }

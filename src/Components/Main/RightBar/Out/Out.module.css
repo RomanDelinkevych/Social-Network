@@ -1,7 +1,37 @@
 .out {
-  background-image: url("../../../../assets/img/2018-04-29_bus_40449296_I1.jpg");
+  width: 100%;
+  flex-direction: column;
+  background-image: url("./../../../../assets/img/autumn-g8ad28843a_1920.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-position-x: center;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.out > p {
+  color: white;
+}
+.out > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+.out > div > button {
+  width: 30%;
+  text-decoration: none;
+  border: none;
+  background: radial-gradient(circle at 100% 100%, #771ce8 0, #771ce8 3px, transparent 3px) 0% 0%/8px 8px no-repeat, radial-gradient(circle at 0 100%, #771ce8 0, #771ce8 3px, transparent 3px) 100% 0%/8px 8px no-repeat, radial-gradient(circle at 100% 0, #771ce8 0, #771ce8 3px, transparent 3px) 0% 100%/8px 8px no-repeat, radial-gradient(circle at 0 0, #771ce8 0, #771ce8 3px, transparent 3px) 100% 100%/8px 8px no-repeat, linear-gradient(#771ce8, #771ce8) 50% 50%/calc(100% - 10px) calc(100% - 16px) no-repeat, linear-gradient(#771ce8, #771ce8) 50% 50%/calc(100% - 16px) calc(100% - 10px) no-repeat, conic-gradient(from 60deg, #ff0000 0%, #ffff00 16.67%, #00ff00 33.33%, #00ffff 50%, #0000ff 66.67%, #ff00ff 83.33%, #ff0000 100%);
+  border-radius: 8px;
+  padding: 9px;
+  box-sizing: border-box;
+  color: orange;
+}
+.out > div > button:hover {
+  width: 40%;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /*# sourceMappingURL=Out.module.css.map */
